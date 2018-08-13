@@ -18,6 +18,7 @@ function send_contact_form(data) {
 			if (data.valid_data) {
 				$('#contact-form').closest('form').find("input[type=text], textarea").val("");
 			}
+			$("#status").html(data.valid_data);
 		},
 		error: function(jqXHR, textStatus, errorThrown) {
 			$("#status").text(jqXHR);
