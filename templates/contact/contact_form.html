@@ -25,6 +25,7 @@
             <div class="col-md-6 mb-md-0 mb-5">
                 
                 <form method="POST" action="{% url 'contact-form' %}" id="contact-form">
+                    {% csrf_token %}
                     {{ form.name.label_tag }}<br>
                     {{ form.name|attr:"autofocus" }}<br>
                     {{ form.email.label_tag }}<br>
