@@ -6,6 +6,8 @@ formData = {
 	'contact_message': $("input[name=message]").val()
 }
 
+$("#send").onclick = send_contact_form();
+
 function send_contact_form(data) {
 	$("#status").html("Sending...");
 
