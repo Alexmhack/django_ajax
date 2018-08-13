@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load widget_tweaks %}
 
 {% block title %}
 	Contact
@@ -55,7 +56,7 @@
                             <label for="email" class="">Your message</label>
                             <div class="md-form mb-0">
                                 <div id="message" class="md-textarea mb-3">
-                                    {{ form.message|attr:"rows:3" }}
+                                    {{ form.message|attr:"rows:4"|attr:"cols:40" }}
                                 </div>
                             </div>
                         </div>
