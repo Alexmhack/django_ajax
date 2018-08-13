@@ -1,1 +1,13 @@
-<a class="mt-5 btn btn-info" href="{% url 'contact-form' %}">Contact us</a>
+{% extends "base.html" %}
+
+{% block title %}
+	Django AJAX Home
+{% endblock %}
+
+{% block content %}
+
+	<div class="container">
+		<a class="mt-5 btn btn-primary" href="{% url 'contact-form' %}">Contact us</a>
+	</div>
+
+{% endblock content %}
