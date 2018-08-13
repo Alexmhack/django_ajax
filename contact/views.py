@@ -45,4 +45,4 @@ def contact_view(request):
 			return JsonResponse(data)
 		else:
 			return JsonResposne(data['invalid_email'])
-	return render(request, "contact_form.html", {'form': contact_form})
+	return render(request, "contact/contact_form.html", {'form': contact_form})
