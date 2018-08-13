@@ -24,7 +24,7 @@
             <!--Grid column-->
             <div class="col-md-6 mb-md-0 mb-5">
                 
-                <form method="POST" action="/create_post/" id="contact-form">
+                <form method="POST" action="{% url 'contact-form' %}" id="contact-form">
                     {{ form.name.label_tag }}<br>
                     {{ form.name|attr:"autofocus" }}<br>
                     {{ form.email.label_tag }}<br>
