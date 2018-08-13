@@ -28,7 +28,7 @@ function send_contact_form() {
 			$('#contact-form').closest('form').find("input[type=text], textarea").val("");
 			console.log(data);
 			console.log("success");
-			$("#status").html(data.valid_data);
+			$("#status").html(data.valid_data + data.contact_name);
 		},
 		error : function(xhr,errmsg,err) {
             $('#status').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
@@ -37,3 +37,26 @@ function send_contact_form() {
         }
 	})
 }
+
+// using jQuery
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie != '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+$.ajaxPrefilter(function(options, originalOptions, jqXHR){
+    if (options['type'].toLowerCase() === "post") {
+        jqXHR.setRequestHeader('X-CSRFToken', getCookie('csrftoken'));
+    }
+});
