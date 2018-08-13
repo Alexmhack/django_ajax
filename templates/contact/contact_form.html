@@ -1,85 +1,83 @@
 {% extends "base.html" %}
 
 {% block title %}
-	Contact Us
+	Contact
 {% endblock title %}
 
 {% block content %}
-	
-	<!--Section: Contact v.2-->
-	<section class="section">
 
-	    <!--Section heading-->
-	    <h2 class="h1-responsive font-weight-bold text-center my-5">Contact us</h2>
-	    <!--Section description-->
-	    <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
-	        matter of hours to help you.</p>
+    <!--Section: Contact v.2-->
+    <section class="section container">
 
-	    <div class="row">
+        <!--Section heading-->
+        <h2 class="h1-responsive font-weight-bold text-center my-5">Contact us</h2>
+        <!--Section description-->
+        <h5 class="text-center w-responsive mx-auto mb-5">The flight you are looking for is not available right now. We can notify you if the flight is available. Leave a message and we will contact you very soon.</h5>
 
-	    	<!-- grid column -->
-	    	<div class="col-md-3"></div>
-	    	<!-- grid column -->
+        <div class="row">
+            <!--Grid column-->
+            <div class="col-md-3 text-center">
+            </div>
+            <!--Grid column-->
 
-	        <!--Grid column-->
-	        <div class="col-md-6 mb-md-0 mb-5">
-	            <form id="contact-form" name="contact-form" method="POST">
+            <!--Grid column-->
+            <div class="col-md-6 mb-md-0 mb-5">
+                <form id="contact-form" name="contact-form" method="POST">
+                    {% csrf_token %}
 
-	                <!--Grid row-->
-	                <div class="row">
+                    <!--Grid row-->
+                    <div class="row">
 
-	                    <!--Grid column-->
-	                    <div class="col-md-6">
-	                        <div class="md-form mb-0">{{ form.name }}
-	                            <!-- <input type="text" id="name" name="name" class="form-control"> -->
-	                            <label for="name" class="">{{ form.label_tag }}</label>
-	                        </div>
-	                    </div>
-	                    <!--Grid column-->
+                        <!--Grid column-->
+                        <div class="col-md-6">
+                            <label for="email" class="">Your name</label>
+                            <div class="md-form mb-0">
+                                {{ form.name }}
+                            </div>
+                        </div>
+                        <!--Grid column-->
 
-	                    <!--Grid column-->
-	                    <div class="col-md-6">
-	                            <!-- <input type="text" id="email" name="email" class="form-control"> -->
-	                        	<div class="md-form mb-0">{{ form.email }}
-	                            <label for="email" class="">{{ form.label_tag }}</label>
-	                        </div>
-	                    </div>
-	                    <!--Grid column-->
+                        <!--Grid column-->
+                        <div class="col-md-6">
+                            <label for="email" class="">Your email</label>
+                            <div class="md-form mb-0">
+                                {{ form.email }}
+                            </div>
+                        </div>
+                        <!--Grid column-->
 
-	                </div>
-	                <!--Grid row-->
+                    </div>
+                    <!--Grid row-->
 
-	                <!--Grid row-->
-	                <div class="row">
+                    <!--Grid row-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="email" class="">Your message</label>
+                            <div class="md-form mb-0">
+                                <div id="message" class="md-textarea mb-3">
+                                    {{ form.message }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Grid row-->
 
-	                    <!--Grid column-->
-	                    <div class="col-md-12">
+                </form>
 
-	                        <div class="md-form">{{ form.message }}
-	                            <label for="message">{{ form.label_tag }}</label>
-	                        </div>
+                <div class="text-center text-md-left">
+                    <a class="btn btn-primary" onclick="">Send</a>
+                </div>
+                <div class="status"></div>
+            </div>
+            <!--Grid column-->
 
-	                    </div>
-	                </div>
-	                <!--Grid row-->
+            <!--Grid column-->
+            <div class="col-md-3 text-center">
+            </div>
+            <!--Grid column-->
 
-	            </form>
+        </div>
 
-	            <div class="text-center text-md-left">
-	                <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Send</a>
-	            </div>
-	            <div class="status"></div>
-	        </div>
-	        <!--Grid column-->
-
-	        <!--Grid column-->
-	        <div class="col-md-3 text-center">
-	        </div>
-	        <!-- grid column -->
-
-	    </div>
-
-	</section>
-	<!--Section: Contact v.2-->
-
+    </section>
+    <!--Section: Contact v.2-->
 {% endblock content %}
