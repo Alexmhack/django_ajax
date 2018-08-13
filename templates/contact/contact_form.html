@@ -55,7 +55,7 @@
                             <label for="email" class="">Your message</label>
                             <div class="md-form mb-0">
                                 <div id="message" class="md-textarea mb-3">
-                                    {{ form.message }}
+                                    {{ form.message|attr:"rows:3" }}
                                 </div>
                             </div>
                         </div>
