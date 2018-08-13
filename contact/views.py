@@ -46,3 +46,7 @@ def contact_view(request):
 		else:
 			return JsonResposne(data['invalid_email'])
 	return render(request, "contact/contact_form.html", {'form': contact_form})
+
+
+def index(request):
+	return render(request, "contact/index.html")
