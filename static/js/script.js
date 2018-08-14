@@ -5,6 +5,8 @@ $("#contact-form").on("submit", function(event) {
 	send_contact_form();
 });
 
+console.log("Script is running")
+
 formData = {
 	'contact_name': $("input[name=name]").val(),
 	'contact_email': $("input[name=email]").val(),
@@ -29,6 +31,7 @@ function send_contact_form() {
 			console.log(data);
 			console.log("success");
 			$("#status").html(data.valid_data + data.contact_name);
+			console.log(data.valid_data + data.contact_name);
 		},
 		error : function(xhr,errmsg,err) {
             $('#status').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
