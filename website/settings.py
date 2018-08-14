@@ -21,11 +21,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-with open("env.json") as f:
-    data = json.load(f)
+# with open("env.json") as f:
+#     data = json.load(f)
 
-SECRET_KEY = data['SECRET_KEY']
-
+SECRET_KEY = 'abc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
