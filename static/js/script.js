@@ -1,16 +1,21 @@
+$name = $("#name").val();
+$email = $("#email").val();
+$message = $("#message").val();
+
 // form submission
 $("#contact-form").on("submit", function(event) {
 	event.preventDefault();
 	console.log("Form Submitted");
 	send_contact_form();
+	console.log($name, $email, $message);
 });
 
-console.log("Script is running")
+console.log("Script is running");
 
 formData = {
 	'contact_name': $("input[name=name]").val(),
-	'contact_email': $("input[name=email]").val(),
-	'contact_message': $("input[name=message]").val()
+	'contact_email': $email,
+	'contact_message': $message
 }
 
 // AJAX for contact submission
@@ -20,18 +25,31 @@ function send_contact_form() {
 	console.log($("#id_email").val());
 	console.log($("#contact_message").val());
 
-	$("#status").html("Sending...")
+	$("#status").html("Sending...");
+
+	$name = $("#id_name").val();
+	$email = $("#id_email").val();
+	$message = $("#contact_message").val();
+
+	console.log($name);
+	console.log($email);
+	console.log($message);
 
 	$.ajax({
-		url: {% contact-form %},
-		type: "POST",
-		data: formData
+		url: "/send-email/",
+		data: {
+			'contact_name': $name,
+			'contact_email': $email,
+			'contact_message': $message
+		},
+		dataType: 'json',
 		success: function(data) {
 			$('#contact-form').closest('form').find("input[type=text], textarea").val("");
 			console.log(data);
 			console.log("success");
-			$("#status").html(data.valid_data + data.contact_name);
-			console.log(data.valid_data + data.contact_name);
+			$("#status").html(data.valid_data);
+			console.log(data.valid_data);
+			return data
 		},
 		error : function(xhr,errmsg,err) {
             $('#status').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
